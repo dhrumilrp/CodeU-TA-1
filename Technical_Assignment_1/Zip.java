@@ -23,29 +23,20 @@ public class Zip {
     static boolean[] join(int[] y, int[] z) {
         //STUDENTS: WRITE YOUR CODE HERE!
         boolean[] divList;
-        if(y.length <= z.length){
+
+        if(y.length < z.length){
             divList = new boolean[y.length];
-            for(int i = 0; i < y.length; i++){
-                if(y[i]%z[i] == 0){
-                    divList[i] = true;
-                }
-                else{
-                    divList[i] = false;
-                }
+        }
+        else divList = new boolean[z.length];
+
+        for(int i = 0; i < divList.length; i++){
+
+            if (z[i] != 0){
+                if(y[i]%z[i] == 0) divList[i] = true;
+                else divList[i] = false;
             }
         }
 
-        else{
-            divList = boolean[z.length];
-            for(int i = 0; i < z.length; i++){
-                if(y[i]%z[i] == 0){
-                    divList[i] = true;
-                }
-                else{
-                    divList[i] = false;
-                }
-            }
-        }
         return divList;
     }
  

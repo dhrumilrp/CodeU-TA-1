@@ -9,16 +9,12 @@ public class Collatz {
     // 7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1
     //
     // Fill in the function loopCount so that it returns the length of
-    // the sequence starting from x.
+    // the sequence starting from x. 
     static int loopCount(int x) {
         //STUDENTS: FILL IN CODE HERE!
-        int count = 1;
-        while( x != 1){
-            if(x%2==0) x = x/2;
-            else x = 3*x+1;
-            count++;
-        }
-        return count;
+        if(x == 1) return 1;
+        if(x%2 == 0) return 1 + loopCount(x/2);
+        else return 1 + loopCount(3*x + 1);
     }
  
     // Using loopCount, fill in the function maxLoop so that it returns
@@ -26,14 +22,13 @@ public class Collatz {
     // number greater than or equal to x and less than y.
     static int maxLoop(int x, int y) {
         //STUDENTS: FILL IN CODE HERE!
-        int maxInt = x;
         int maxLoopNum = 1;
         while(x < y){
-            int num = loopCount(x)
+            int num = loopCount(x);
             if(num > maxLoopNum){
                 maxLoopNum = num;
-                maxInt = x;
             }
+            x++;
         }
         return maxLoopNum;
     }
